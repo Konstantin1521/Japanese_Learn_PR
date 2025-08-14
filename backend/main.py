@@ -2,13 +2,11 @@ import uvicorn
 from fastapi import FastAPI
 
 from backend.utils.config import settings
+from backend.src.api.v1  import router as v1_router
 
 app = FastAPI(title='Japanese Learning Service')
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+app.include_router(v1_router)
 
 
 if __name__ == "__main__":
