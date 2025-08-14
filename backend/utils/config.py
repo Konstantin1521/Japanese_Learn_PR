@@ -23,10 +23,15 @@ class DatabaseConfig(BaseModel):
     pool_size: int = 50
     max_overflow: int = 10
 
+class KanaConfig(BaseModel):
+    hg: str = "hiragana"
+    kk: str = "katakana"
+
 
 class Settings(BaseSettings):
     run: RunConfig = RunConfig()
     api: APIV1Prefix = APIV1Prefix()
+    kana: KanaConfig = KanaConfig()
     db: DatabaseConfig = DatabaseConfig()
 
 
